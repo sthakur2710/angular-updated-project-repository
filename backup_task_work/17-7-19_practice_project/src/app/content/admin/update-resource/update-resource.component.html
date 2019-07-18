@@ -1,0 +1,54 @@
+<hello name="{{ name }}"></hello>
+<h3 class="page-header">Update Resources</h3>
+<button type="button" (click)="addNewRow()" class="btn btn-primary">Add new Row</button><br>
+<form [formGroup]="invoiceForm" (ngSubmit)="update_resource()">
+    <div class="form-group">
+        <label>Resource Name</label>
+        <input type="hidden" formControlName="user_id" value="user_id">
+        <input type="hidden" formControlName="resource_id" value="resource_id">
+
+        <input type="text" formControlName="resource_name" class="form-control m-t">
+        <div *ngIf="invoiceForm.controls['resource_name'].invalid && (invoiceForm.controls['resource_name'].dirty || invoiceForm.controls['resource_name'].touched)"
+        class="alert alert-danger">
+            <div *ngIf="invoiceForm.controls['resource_name'].errors.required">Resource name is required.
+            </div>
+        </div>
+    </div>
+    <div formArrayName="itemRows">
+        <div *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
+            <h4>Item Row #{{ i + 1 }}</h4>
+            <div class="form-group">
+                <label>Item Name</label>
+                <input formControlName="itemname" class="form-control">
+                <div  class="alert alert-danger" *ngIf="invoiceForm.controls.itemRows.controls[i].controls.itemname.invalid && (invoiceForm.controls.itemRows.controls[i].controls.itemname.dirty || invoiceForm.controls.itemRows.controls[i].controls.itemname.touched) ">
+                        item name is required
+                </div>
+                    <!-- <div *ngIf="invoiceForm.controls.itemRows.controls[i].controls.itemname.invalid && (invoiceForm.controls.itemRows.controls[i].controls.itemname.dirty || invoiceForm.controls.itemRows.controls[i].controls.itemname.touched)"
+                    class="alert alert-danger">
+                        <div *ngIf="invoiceForm.controls.itemRows.controls[i].controls.itemname.errors.required">Item name is required.
+                        </div>
+                    </div> -->
+
+            </div>
+            <div class="form-group">
+                <label>Item Type</label>
+                <select formControlName="itemtype" class="form-control">
+                    <option Value="">Select Item Type</option>
+                    <option value="integer">Integer</option>
+                    <option value="string">String</option>
+                </select>
+                <div  class="alert alert-danger" *ngIf="invoiceForm.controls.itemRows.controls[i].controls.itemtype.invalid && (invoiceForm.controls.itemRows.controls[i].controls.itemtype.dirty || invoiceForm.controls.itemRows.controls[i].controls.itemtype.touched) ">
+                        Please select item type
+                </div>
+            </div>
+            <button *ngIf="invoiceForm.controls.itemRows.controls.length > 1" (click)="deleteRow(i)"
+                class="btn btn-danger">Delete Button</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <br>
+            <input type="submit" value="Update" [disabled]="!invoiceForm.valid" class="btn btn-success">
+
+    </div>
+</form>
+<pre>{{invoiceForm.value | json}}</pre>

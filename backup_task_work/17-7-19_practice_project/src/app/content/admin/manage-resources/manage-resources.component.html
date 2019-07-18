@@ -1,0 +1,81 @@
+<section class="row m-b-md">
+    <div class="col-sm-12">
+        <div class="col-sm-4">
+            <h3 class="m-b-xs text-black">Resource Management
+
+            </h3>
+        </div>
+     
+    </div>
+</section>
+
+<section id="content">
+    <section class="vbox">
+        <section class="scrollable padder">
+            <!-- <div class="m-b-md">
+                                <h3 class="m-b-none">Static Table</h3> </div> -->
+            <section class="panel panel-default">
+                <header class="panel-heading"><a style="color:red">Resource List</a> 
+                    <input type="text" style="float:right" (keyup)='search($event.target.value)'>
+
+                </header>
+
+
+                <div class="table-responsive" id="contentToConvertPdf">
+                    <div *ngIf="filterData.length ==0">
+                        <h1 style="text-align: center">No Data Found</h1>
+                    </div>
+                    <table class="table table-striped b-t b-light" *ngIf="filterData.length !=0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Resource Name</th>
+                                <th>Details</th>
+                                <th>Action</th>
+                                <!-- <th>Status Change</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let details of filterData ;let i = index">
+                                <td> {{i+1}}</td>
+                                <td class="date-width">{{details.resource_name}}</td>
+                                <td><a [routerLink]="['/admin/resource_item']" (click)="set_resource_id(details.resource_id)" class="btn btn-s-md btn-success  viewbuttonsetwidth"
+                                        >View</a>
+                                </td>
+                                <td><a [routerLink]="['/admin/update_resources']" style="margin:0 5px;font-size:15px;color:red"
+                                        (click)="set_resource_id(details.resource_id)"><i class="far fa-edit"></i></a>
+                                    <a  class="fa fa-trash-o" style="font-size:18px;color:red;margin:0 5px;" (click)="delete_resource_id(details.resource_id)"><i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-4 hidden-xs">
+                            <!-- <select class="input-sm form-control input-s-sm inline v-middle" [(ngModel)]="userActionExport">
+                                                <option value="pdf">Export To Pdf</option>
+                                                <option value="excel">Export To Excel</option>
+                                            </select>
+                                            <button class="btn btn-sm btn-default" (click)="userExportChoice(userActionExport)">Apply</button> -->
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <!-- <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>  -->
+                        </div>
+
+                    </div>
+                </footer>
+            </section>
+        </section>
+    </section>
+    <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+</section>
+<!-- <section id="content"  *ngIf="bpclhistorydata.length==0">
+                        <section class="vbox">
+                            <section class="scrollable padder">
+
+                                </section>
+                                </section>
+                                </section> -->

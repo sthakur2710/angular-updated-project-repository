@@ -1,0 +1,49 @@
+span.badge.badge-sm.up.bg-danger.count {
+    background-color: #111;
+}
+
+.scrollable_final
+{
+    overflow-x: scroll;
+}
+.table th, .table td {
+    padding: 10px !important;
+} 
+.green_data
+{
+    padding: 0 0 0 30px;
+    display:inline-block;
+    color:#111;
+    font-size:24px;
+    cursor: default;
+    font-weight: normal;
+}
+.green_data:hover {
+    color: #111;
+}
+.green_data h3 {
+    font-size: 20px;
+    margin: 18px 0 0 0;
+    /* color: #d51a2d; */
+}
+/* .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 30;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 360px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #bbbcbf;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+} */

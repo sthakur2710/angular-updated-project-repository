@@ -1,0 +1,74 @@
+<div class="loginsec">
+    <section id="content" class="wrapper-md animated fadeInUp">
+      <div class="container aside-xl"> <a class="navbar-brand block loginlogo" href="#"><img src="assets/images/bestpeers.png"
+            alt="logo"></a>
+        <section class="m-b-lg logfrm">
+          <header class="wrapper text-center"> 
+              <strong  *ngIf="first_login">Sign in to get in touch</strong>
+              
+              <strong *ngIf="activate_msg">Create Account</strong>
+              <strong *ngIf="forgot_value">Forgot Password</strong>         </header>
+          <form [formGroup]="loginForm" *ngIf="first_login" (ngSubmit)="signIn()" novalidate>
+            <div class="list-group">
+              <div class="list-group-item">
+                <input type="text" placeholder="Email" formControlName="email" class="form-control no-border"> </div>
+              <div class="list-group-item">
+                <input type="password" placeholder="Enter Password" formControlName="password" class="form-control no-border">
+                <!-- <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine" class="error-msg">
+                    <div [hidden]="!loginForm.controls['password'].errors.required">Password is required.</div>
+                    </div> -->
+              </div>
+            </div>
+            <button type="submit" [disabled]="!loginForm.valid" class="btn btn-lg btn-primary btn-block signbtn">Sign
+              in</button>
+          </form>
+          <form [formGroup]="activateForm" *ngIf="activate_msg" (ngSubmit)="activate_account_submit()"
+            novalidate>
+            <div class="list-group">
+                <div class="list-group-item">
+                    <input type="text" placeholder="Name" formControlName="name" class="form-control no-border">
+                  </div>
+              <div class="list-group-item">
+                 
+                <input type="text" placeholder="Email" formControlName="email" class="form-control no-border"> </div>
+                <div class="list-group-item">
+                  <input type="password" placeholder="Password" formControlName="password" class="form-control no-border">
+                </div>
+                <div class="list-group-item">
+                <input type="text" placeholder="Mobile Number" formControlName="mobile_number" class="form-control no-border">
+              </div>
+              <div class="list-group-item">
+                  <textarea  placeholder="address" formControlName="address" class="form-control no-border"></textarea>
+                </div>
+  
+            </div>
+            <button type="submit" [disabled]="!activateForm.valid" class="btn btn-lg btn-primary btn-block signbtn">Submit
+            </button>
+          </form>
+         
+          <ng-container>
+            <div class="text-center clearfix">
+              <a (click)='back_signin()'  style="line-height: 33px;"><small>Back to signIn</small></a>
+              <strong *ngIf="check_resend" style="float: right; margin: 0 0 10px;"><a (click)="resend_otp()"  class="btn btn-sm btn-danger">Resend OTP</a></strong>
+            </div>
+          </ng-container>
+          <ng-container >
+              <strong *ngIf="check_resend" style="float: right; margin: 0 0 10px;"><a (click)="resend_otp()"  class="btn btn-sm btn-danger">Resend OTP</a></strong>
+            <div class="text-center m-t m-b"><a (click)='activate_account("activate")'><small>Create Account</small></a></div>
+            <!-- <div class="text-center m-t m-b"><a (click)='fogrot_password("forgot")'><small>Forgot password?</small></a></div> -->
+          </ng-container>
+  
+  
+        </section>
+      </div>
+      <footer id="footer">
+          <div class="text-center padder">
+            <p> <small>© 2019 Self Project. All Rights Reserved.<br>Designed by <a href="http://www.bestpeers.com/"
+                  target="_blank">bestpeers</a></small> </p>
+          </div>
+        </footer>
+    </section>
+    <!-- footer -->
+    
+  </div>
+ 

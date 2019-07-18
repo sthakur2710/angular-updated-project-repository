@@ -1,0 +1,103 @@
+<section class="row m-b-md">
+        <div class="col-sm-12">
+            <div class="col-sm-4">
+                <h3 class="m-b-xs text-black">Manage Users
+    
+                </h3>
+            </div>
+         
+        </div>
+    </section>
+    
+    <section id="content">
+        <section class="vbox">
+            <section class="scrollable padder">
+                <!-- <div class="m-b-md">
+                                    <h3 class="m-b-none">Static Table</h3> </div> -->
+                <section class="panel panel-default">
+                    <header class="panel-heading"><a style="color:red">User List</a> 
+                        <input type="text" style="float:right" (keyup)='search($event.target.value)'>
+    
+                    </header>
+    
+    
+                    <div class="table-responsive" id="contentToConvertPdf">
+                        <div *ngIf="user_details.length ==0">
+                            <h1 style="text-align: center">No Data Found</h1>
+                        </div>
+                        <table class="table table-striped b-t b-light">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Mobile Number</th>
+                                    <!-- <th>Status Change</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let details of pagedItems ;let i = index">
+                                    <td> {{pager.startIndex+i+1}}</td>
+                                    <td class="date-width">{{details.name}}</td>
+                                    <td class="date-width">{{details.email}}</td>
+                                    <td class="date-width">{{details.address}}</td>
+                                    <td class="date-width">{{details.mobile_number}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                            <div class="container pagination-btns">
+                                <div class="text-center">
+                                    <!-- items being paged -->
+                                    <!-- <div *ngFor="let item of pagedItems">{{item.name}}</div>  -->
+                    
+                                    <!-- pager -->
+                                    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                            <a (click)="setPage(1)">First</a>
+                                        </li>
+                                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                                        </li>
+                                        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                            <a (click)="setPage(page)">{{page}}</a>
+                                        </li>
+                                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                                        </li>
+                                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                            <a (click)="setPage(pager.totalPages)">Last</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <footer class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-4 hidden-xs">
+                                <!-- <select class="input-sm form-control input-s-sm inline v-middle" [(ngModel)]="userActionExport">
+                                                    <option value="pdf">Export To Pdf</option>
+                                                    <option value="excel">Export To Excel</option>
+                                                </select>
+                                                <button class="btn btn-sm btn-default" (click)="userExportChoice(userActionExport)">Apply</button> -->
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <!-- <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>  -->
+                            </div>
+    
+                        </div>
+                    </footer>
+                </section>
+            </section>
+        </section>
+        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+    </section>
+    <!-- <section id="content"  *ngIf="bpclhistorydata.length==0">
+                            <section class="vbox">
+                                <section class="scrollable padder">
+    
+                                    </section>
+                                    </section>
+                                    </section> -->

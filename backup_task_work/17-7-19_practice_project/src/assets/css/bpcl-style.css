@@ -1,0 +1,63 @@
+.loginsec {
+    background-image: url(../images/login-pattern.png);
+    height: 100vh;
+	padding-top: 40px;
+	background-size: 100%;
+}
+/*html.loginpg{
+	background-color:#177bbb;
+}*/
+.navbar-brand.block.loginlogo img {
+    max-height: 100px;
+    margin: 0;
+}
+.loginsec strong {
+    color: #444;
+    font-size: 21px;
+    font-weight: normal;
+    margin: 10px 0;
+    display: block;
+}
+.signbtn {
+    /*background-color: #ffde00;
+    color: #177bbb !important;*/
+}
+.loginsec a small {
+    color: #177bbb;
+    font-size: 14px;
+}
+.loginsec #footer {
+    color: #777;
+}
+.loginsec #footer a{
+    color: #177bbb;
+}
+.loginsec #footer small {
+    font-size: 13px;
+    line-height: 24px;
+}
+
+.logfrm {
+    /*background-color: rgba(255,255,255,0.3);
+    padding: 40px;
+    border: 4px solid rgba(255,255,255,0.2);*/
+}
+
+.logfrm .list-group {
+    box-shadow: 0px 10px 20px 0px rgba(120,98,222,0.2);
+}
+.signbtn {
+    width: 100px;
+    font-size: 15px;
+    margin-top: -96px;
+    position: relative;
+    z-index: 1;
+    float: right;
+    margin-right: -50px;
+	box-shadow: 0px 10px 20px 0px rgba(120,98,222,0.2);
+}
+.navbar-brand img {
+    border: 3px solid #fff;
+    border-radius: 3px;
+    background-color: #fff;
+}
